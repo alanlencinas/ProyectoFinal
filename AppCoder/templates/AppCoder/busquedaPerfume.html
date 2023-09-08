@@ -1,0 +1,21 @@
+ {% extends 'AppCoder/padre.html' %}
+
+ {% load static %}
+
+ {% block titulo %} Busqueda de Perfumes! <br><br>- NATURA- </br></br> {% endblock %}
+
+ {% block contenido_que_cambia %}
+
+ <form action="{% url 'buscar' %}" method="GET">
+
+    <input type="number" name="codigo" id="codigo" placeholder="Inserte Codigo">
+
+    <input type="submit" value="Buscar Codigo">
+
+
+ </form>
+ <br></br>
+
+ <h2>{{ mensaje }}</h2>
+    
+{% endblock %}

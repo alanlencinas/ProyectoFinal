@@ -1,0 +1,65 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% load static %}
+
+
+
+{% block titulo %}
+    <div class="titulo">
+        <p class="titulo-texto">Perfumeria!</p>
+        <p class="natura-texto">- NATURA -</p>
+    </div>
+{% endblock %}
+
+
+
+{% block contenido_que_cambia %}
+<br></br>
+<td><a class="btn btn-secondary" href="{% url 'busquedaPerfume' %}" style = "Color: black;"><u><b>Buscar Perfume</b></u></a></td>
+<br></br>
+<h4>Formulario Perfumeria</h4>
+<br></br>
+
+<form action = '{% url 'perfumeria' %}' method="POST"> {% csrf_token %}
+    <table>
+    {{ formulario.as_table }}
+    </table>
+    <br></br>
+    <input type="submit" value="Agregar">
+
+</form>
+
+<br></br>
+
+<table>
+  <thead>
+      <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Sexo</th>
+          <th>Precio</th>
+          <th>Opciones</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for perfumeria in perfumeria %}
+      <tr>
+          <td>{{ perfumeria.Codigo }}</td>
+          <td>{{ perfumeria.Nombre }}</td>
+          <td>{{ perfumeria.Sexo }}</td>
+          <td>{{ perfumeria.Precio }}</td>
+          <td>
+              <a class="btn btn-danger" href="{% url 'eliminarperfume' perfumeria.id %}" style = "Color: black;"><u><b>Eliminar</b></u></a>
+              <a class="btn btn-primary" href="{% url 'editarperfume' perfumeria.id %}" style = "Color: black;"><u><b>Editar</b></u></a>
+          </td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+<br></br>
+
+<h3>{{ mensaje }}</h3>
+{% endblock %}
+
+

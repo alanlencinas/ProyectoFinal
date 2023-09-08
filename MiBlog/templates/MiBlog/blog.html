@@ -1,0 +1,165 @@
+{% extends 'MiBlog/padre2.html' %}
+
+{% load static %}
+
+
+
+{% block contenido_que_cambia %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog Natura!</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="{% static 'MiBlog/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">Mundo æ NATURA æ </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">Bienvenido a nuestro BLOG!</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">En este sitio encontrarás esos productos que tanto buscas.</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img class="img-fluid rounded" src="{% static 'MiBlog/assets/img/cremas.jpg' %}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4"><b>NATURA EKOS</b><br></br>Los productos de la línea Natura Ekos unen la tradición popular al uso de activos sustentables de la biodiversidad, para despertar la conciencia de que somos parte de una sola naturaleza y de cuánto somos responsables por todo aquello que nos rodea. La línea Ekos busca preservar y difundir nuestro patrimonio ambiental, cultural y social, creando riquezas para todos. Sumergidos en los placeres de las aguas y en el despertar de los toques de cada baño, los productos Ekos, con extractos vegetales, aceites esenciales, colores de la tierra, texturas y fragancias de la naturaleza, fueron especialmente creados para brindar placer y bienestar..</p>
+                            <p class="fs-5 mb-4"><b>NATURA TODODÍA</b><br></br>Natura Tododía busca una nueva mirada para lo cotidiano. Con envases y fragancias inspiradas en el universo culinario, los productos poseen texturas diferentes que transforman el cuidado diario en una actividad creativa que despiertan los pequeños placeres del cuidado diario.</p>
+                            <p class="fs-5 mb-4"><b>NATURA ERVA DOCE</b><br></br> Natura Erva doce tiene productos hipoalergénicos, con pH fisiológico y fórmulas tan suaves como su fragancia inconfundible, una marca registrada de Natura. Para todo tipo de piel, la línea compuesta por jabones, desodorantes, hidratantes y productos para el rostro que garantizan más protección y limpieza, en fórmulas libres de alcohol y colorantes y texturas suaves que prolongan el placer del baño por más tiempo.</p>
+                            <p class="fs-5 mb-4"><b>NATURA MAMÁ Y BEBÉ</b><br></br> El vínculo mamá y bebé determina, en gran parte, como el individuo se va a relacionar consigo mismo y con el mundo. Amor fundamental es el nombre que le damos a este vínculo. La línea Natura Mamá y Bebé estimula el cultivo de ese amor por medio de los sentidos. La vista, el olfato, el tacto, la audición. Hay un universo de sensaciones y sentimientos a ser explorado. Durante ese proceso, la presencia del padre es muy importante participando de los cuidados de la embarazada y del bebé, él ayuda a garantizar una gestación y una maternidad tranquilas, además de fortalecer el vínculo papá-bebé.</p>
+                            <p class="fs-5 mb-4"><b>NATURA VIVA </b><br></br>Natura Viva es la línea de maquillaje, hecha para mujeres de todos los estilos, edades y tonos de piel. Con una amplia gama de productos, le brinda más color al maquillaje del día a día, de una manera sencilla y relajada. Refleja alegría, estimula la expresión y nos invita a vivir la vida intensamente, con alegría y felicidad.</p>
+                            <p class="fs-5 mb-4"><h2 class="fw-bolder mb-4 mt-5">NaturaAdictos</h2>
+                            <p class="fs-5 mb-4">--</p>
+                            <p class="fs-5 mb-4">--</p>
+                        </section>
+                    </article>
+                    <!-- Comments section-->
+                    <section class="mb-5">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <!-- Comment form-->
+                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                                <!-- Comment with nested comments-->
+                                <div class="d-flex mb-4">
+                                    <!-- Parent comment-->
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                                        <!-- Child comment 1-->
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold">Commenter Name</div>
+                                                And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
+                                            </div>
+                                        </div>
+                                        <!-- Child comment 2-->
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold">Commenter Name</div>
+                                                When you put money directly to a problem, it makes a good headline.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single comment-->
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Busqueda</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Ingresa para buscar.." aria-label="Ingresa para buscar.." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Vamos!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Nuestras Categorias</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="{% url 'perfumeria' %}">Perfumeria</a></li>
+                                        <li><a href="#!">Maquillaje</a></li>
+                                        <li><a href="#!">Cuidado Corporal</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">Cabello</a></li>
+                                        <li><a href="#!">Clientes</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Side Widget</div>
+                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
+{% endblock %}

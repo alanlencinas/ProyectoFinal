@@ -1,0 +1,22 @@
+ {% extends 'AppCoder/padre.html' %}
+
+ {% load static %}
+
+ {% block titulo %} Editando oroducto de cuidadocorporal:  {{ cuidadoscorporales }} {% endblock %}
+
+ {% block contenido_que_cambia %}
+    
+ <form action="{% url 'editarcuidadocorporal' cuidadoscorporales.id %}" method ="POST"> {% csrf_token %}
+
+
+    <table>
+
+        {{ formulario.as_table}}
+
+    </table>
+
+    <input type="submit" value="Guardar Cambios">
+
+    </form>
+
+{% endblock %}

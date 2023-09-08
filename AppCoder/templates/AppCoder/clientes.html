@@ -1,0 +1,51 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% load static %}
+
+{% block titulo %} Nuestros Clientes! <br><br>- NATURA- </br></br> {% endblock %}
+
+{% block contenido_que_cambia %}
+<h4>Formulario de Clientes</h4>
+<br></br>
+
+<form action = '{% url 'clientes' %}' method="POST"> {% csrf_token %}
+    <table>
+    {{ formulario.as_table }}
+    </table>
+    <br></br>
+    <input type="submit" value="Agregar">
+</form>
+
+<br></br>
+
+<table>
+    <thead>
+      <tr>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>DNI</th>
+        <th>Email</th>
+        <th>Opciones</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for clientes in clientes %}
+      <tr>
+        <td>{{ clientes.Apellido }}</td>
+        <td>{{ clientes.Nombre }}</td>
+        <td>{{ clientes.DNI }}</td>
+        <td>{{ clientes.Email }}</td>
+        <td>
+            <a class="btn btn-danger" href="{% url 'eliminarcliente' clientes.id %}" style = "Color: black;"><u><b>Eliminar</b></u></a>
+            <a class="btn btn-primary" href="{% url 'editarcliente' clientes.id %}" style = "Color: black;"><u><b>Editar</b></u></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<br></br>
+<h3>{{mensaje }}</h3>
+
+
+{% endblock %}

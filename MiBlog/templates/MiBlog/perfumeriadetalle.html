@@ -1,0 +1,91 @@
+{% extends 'MiBlog/padre2.html' %}
+
+{% load static %}
+
+
+
+{% block contenido_que_cambia %}
+<br></br>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galería de Imágenes Cuadradas</title>
+    <style>
+        /* Estilos para las imágenes cuadradas */
+        .square-image {
+            max-width: 150px; /* Establece un tamaño máximo para las imágenes */
+            max-height: 150px; /* Establece una altura máxima para las imágenes */
+            object-fit: cover; /* Ajusta la imagen dentro del contenedor sin distorsionarla */
+        }
+        
+        /* Estilos para los campos de comentarios */
+        textarea {
+            width: 100%;
+            height: 80px; /* Ajusta la altura según tus necesidades */
+            box-sizing: border-box;
+        }
+
+        /* Estilos para las celdas de la tabla */
+        td {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume1.jpg' %}" alt="Imagen 1" />
+                <p>Descripción de la Imagen 1</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume2.jpg' %}" alt="Imagen 2" />
+                <p>Descripción de la Imagen 2</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume3.jpg' %}" alt="Imagen 3" />
+                <p>Descripción de la Imagen 3</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume4.jpg' %}" alt="Imagen 4" />
+                <p>Descripción de la Imagen 4</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume5.jpg' %}" alt="Imagen 5" />
+                <p>Descripción de la Imagen 5</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume6.jpg' %}" alt="Imagen 6" />
+                <p>Descripción de la Imagen 6</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume7.jpg' %}" alt="Imagen 7" />
+                <p>Descripción de la Imagen 7</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+            <td>
+                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume8.jpg' %}" alt="Imagen 8" />
+                <p>Descripción de la Imagen 8</p>
+                <textarea placeholder="Escribe un mensaje"></textarea>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+
+{% endblock %}

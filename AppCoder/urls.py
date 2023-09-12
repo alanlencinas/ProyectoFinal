@@ -22,6 +22,7 @@ urlpatterns = [
     path('editarcliente/<id>', editarcliente, name = 'editarcliente'),
     path('busquedaPerfume', busquedaPerfume, name = 'busquedaPerfume'),
     path('editarcuidadocorporal/<id>', editarcuidadocorporal, name = 'editarcuidadocorporal'),
+    path('editaravatar', editaravatar, name = 'editaravatar'),
     
     
     

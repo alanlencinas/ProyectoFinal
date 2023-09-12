@@ -5,7 +5,10 @@
  {% block titulo %} Editando Perfil:  {{ user.username }} {% endblock %}
 
  {% block contenido_que_cambia %}
-    
+ <h3>{{ mensaje }}</h3>
+ <br></br>
+ <td><a class="btn btn-secondary" href="{% url 'editaravatar' %}" style = "Color: black;"><u><b>Cargar/Editar Avatar</b></u></a></td>
+ <br></br>
  <form action="{% url 'editarPerfil' %}" method ="POST"> {% csrf_token %}
 
 
@@ -18,5 +21,8 @@
     <input type="submit" value="Guardar">
 
     </form>
+
+
+
 
 {% endblock %}

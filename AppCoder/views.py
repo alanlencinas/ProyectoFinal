@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Perfumeria, Cuidadocorporal, Maquillaje, Cabello, Clientes, Avatar
 from django.http import HttpResponse
-from .forms import perfumeria_Formulario, cuidado_Corporal_Formulario, maquillaje_Formulario, cabello_Formulario, clientes_Formulario, RegistroUsuario_Formulario, UserEditForm
+from .forms import perfumeria_Formulario, cuidado_Corporal_Formulario, maquillaje_Formulario, cabello_Formulario, clientes_Formulario, RegistroUsuario_Formulario, UserEditForm, AvatarForm
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -20,6 +20,17 @@ def obtenerAvatar(request):
 def inicio(request):
 
     return render(request, 'AppCoder/inicio.html', {"avatar":obtenerAvatar(request)})
+
+@login_required
+def editaravatar(request):
+    if request.method == 'POST':
+        form = AvatarForm(request.POST, request.FILES, instance=request.user.id)
+        if form.is_valid():
+            form.save()
+            return redirect('AppCoder/editaravatar.html')  # Redirige a la página de perfil del usuario
+    else:
+        form = AvatarForm()
+    return render(request, 'AppCoder/editaravatar.html', {'form': form})
 
 def cabello(request):
     if request.method =="POST":

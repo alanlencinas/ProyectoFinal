@@ -24,13 +24,21 @@ def inicio(request):
 @login_required
 def editaravatar(request):
     if request.method == 'POST':
-        form = AvatarForm(request.POST, request.FILES, instance=request.user.id)
+        form = AvatarForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('AppCoder/editaravatar.html')  # Redirige a la página de perfil del usuario
+            # Guarda el avatar asociado al usuario actual
+            avatar = form.save(commit=False)  # Utiliza commit=False para evitar la guardia inmediata
+            avatar.user = request.user  # Asocia el usuario actual al avatar
+            avatar.save()  # Guarda el avatar con el usuario asociado
+            messages.success(request, 'Avatar actualizado con éxito.')  # Mensaje de éxito
+            return redirect('inicio')  # Redirecciona a la página deseada
+        else:
+            messages.error(request, 'Hubo un error al cargar el avatar. Por favor, verifica los datos.')
+
     else:
         form = AvatarForm()
-    return render(request, 'AppCoder/editaravatar.html', {'form': form})
+
+    return render(request, 'AppCoder/editaravatar.html', {'form': form, "avatar": obtenerAvatar(request)})
 
 def cabello(request):
     if request.method =="POST":
@@ -304,11 +312,11 @@ def login_request(request):
             usuario=authenticate(username=usu, password=clave)
             if usuario is not None:
                 login(request, usuario)
-                return render(request, "AppCoder/inicio.html", {'mensaje': f'Usuario {usu} logueado correctamente'})
+                return render(request, "AppCoder/inicio.html", {'mensaje': f'Usuario {usu} logueado correctamente', "avatar": obtenerAvatar(request)})
             else:
                 return render(request, "AppCoder/login.html", {'mensaje': "Datos Invalidos"})
         else:
-            return render(request, "AppCoder/login.html", {'formulario': form, 'mensaje': "Datos Invalidos", "avatar": obtenerAvatar})
+            return render(request, "AppCoder/login.html", {'formulario': form, 'mensaje': "Datos Invalidos", "avatar": obtenerAvatar(request)})
     else:
         form=AuthenticationForm()
         return render(request, "AppCoder/login.html", {'formulario': form, "avatar": obtenerAvatar  })
@@ -333,7 +341,6 @@ def registrar(request):
 @login_required
 def editarPerfil(request):
     usuario = request.user
-
     if request.method == "POST":
         form = UserEditForm(request.POST, instance=usuario)
         if form.is_valid():
@@ -357,7 +364,7 @@ def editarPerfil(request):
     else:
         form = UserEditForm(instance=usuario)
 
-    return render(request, "AppCoder/editarPerfil.html", {"formulario": form, "nombreusuario": usuario.username, "avatar": obtenerAvatar})
+    return render(request, "AppCoder/editarPerfil.html", {"formulario": form, "nombreusuario": usuario.username, "avatar": obtenerAvatar(request)})
 
 
 

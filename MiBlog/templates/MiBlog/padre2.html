@@ -35,6 +35,7 @@
                 <a class="btn btn-primary" href="{% url 'cabello' %}" style = "Color: black;"><u><b>Cabello</b></u></a>
                 <a class="btn btn-primary" href="{% url 'clientes' %}" style = "Color: black;"><u><b>Clientes</b></u></a>
                 <p>Bienvenido: <b>{{ user.username }}</b></p>
+                <img src="{{ avatar }}" alt="Avatar" style= "width:50px;height:10" />
                 <a class="btn btn-success" href="{% url 'logout' %}" style = "Color: black;"><u><b>Log Out</b></u></a>
                 <a class="btn btn-success" href="{% url 'editarPerfil' %}" style = "Color: black;"><u><b>Editar Perfil</b></u></a>
                 {% else %}

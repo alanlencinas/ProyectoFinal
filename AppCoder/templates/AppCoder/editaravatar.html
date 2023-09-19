@@ -6,12 +6,9 @@
 
  {% block contenido_que_cambia %}
 
- <form action = "{% url 'editaravatar' %}" method="POST"> { csrf_token %}
-
- <form method="post" enctype="multipart/form-data">
-    <table>
-        {{ form.as_table }}
-    </table>
+ <form action = "{% url 'editaravatar' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_table }}
     <input type="submit" value="Cargar">
 </form>
 

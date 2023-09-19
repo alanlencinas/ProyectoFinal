@@ -9,19 +9,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Galería de Imágenes Cuadradas</title>
     <style>
         /* Estilos para las imágenes cuadradas */
         .square-image {
             max-width: 150px; /* Establece un tamaño máximo para las imágenes */
-            max-height: 150px; /* Establece una altura máxima para las imágenes */
+            max-height: 200px; /* Establece una altura máxima para las imágenes */
             object-fit: cover; /* Ajusta la imagen dentro del contenedor sin distorsionarla */
         }
         
         /* Estilos para los campos de comentarios */
         textarea {
             width: 100%;
-            height: 80px; /* Ajusta la altura según tus necesidades */
+            height: 100px; /* Ajusta la altura según tus necesidades */
             box-sizing: border-box;
         }
 
@@ -29,59 +30,90 @@
         td {
             text-align: center;
             padding: 10px;
+            vertical-align: top; /* Hace que el contenido se alinee en la parte superior de las celdas */
+        }
+
+        /* Estilos para el contenedor de texto a la derecha */
+        .text-container {
+            padding-left: 20px; /* Espaciado a la izquierda del texto */
+        }
+
+        table {
+            background-color: #f2f2f2; /* Cambia el color de fondo a gris claro */
         }
     </style>
 </head>
+<a href="{% url 'index' %}">Volver al Blog</a>
+<br></br>
+<h1>Productos de Perfumeria mas vendidos...</h1>
+<br>
 <body>
     <table>
         <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume1.jpg' %}" alt="Imagen 1" />
-                <p>Descripción de la Imagen 1</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
+            <td class="text-container" style="vertical-align: middle;">
+                <p><b>Kaiak "Oceano", perfume Masculino, senti el aroma del Océano en tu piel..</b></p>
+            </td>
+        </tr>
+        <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume2.jpg' %}" alt="Imagen 2" />
+            </td>
+            <td class="text-container" style="vertical-align: middle;">
                 <p>Descripción de la Imagen 2</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
         </tr>
         <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume3.jpg' %}" alt="Imagen 3" />
-                <p>Descripción de la Imagen 3</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
+            <td class="text-container" style="vertical-align: middle;">
+                <p>Descripción de la Imagen 3</p>
+            </td>
+        </tr>
+        <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume4.jpg' %}" alt="Imagen 4" />
-                <p>Descripción de la Imagen 4</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
+            <td class="text-container" style="vertical-align: middle;">
+                <p>Descripción de la Imagen 4</p>
+            </td>        
         </tr>
         <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume5.jpg' %}" alt="Imagen 5" />
-                <p>Descripción de la Imagen 5</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
+            <td class="text-container" style="vertical-align: middle;">
+                <p>Descripción de la Imagen 5</p>
+            </td>        
+        </tr>
+        <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume6.jpg' %}" alt="Imagen 6" />
-                <p>Descripción de la Imagen 6</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
+            <td class="text-container" style="vertical-align: middle;">
+                <p>Descripción de la Imagen 6</p>
+            </td>        
         </tr>
         <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume7.jpg' %}" alt="Imagen 7" />
-                <p>Descripción de la Imagen 7</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
+            <td class="text-container" style="vertical-align: middle;">
+                <p>Descripción de la Imagen 7</p>
+            </td>        
+        </tr>
+        <tr>
             <td>
                 <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume8.jpg' %}" alt="Imagen 8" />
-                <p>Descripción de la Imagen 8</p>
-                <textarea placeholder="Escribe un mensaje"></textarea>
             </td>
+            <td class="text-container" style="vertical-align: middle;">
+                <p>Descripción de la Imagen 8</p>
+            </td>        
         </tr>
+        <tr>
     </table>
 </body>
 </html>

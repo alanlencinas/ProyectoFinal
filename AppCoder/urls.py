@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import *
 from django.contrib.auth.views import LogoutView
+from Mensajeria.views import enviar_mensaje
 urlpatterns = [
    
    
@@ -23,6 +24,7 @@ urlpatterns = [
     path('busquedaPerfume', busquedaPerfume, name = 'busquedaPerfume'),
     path('editarcuidadocorporal/<id>', editarcuidadocorporal, name = 'editarcuidadocorporal'),
     path('editaravatar', editaravatar, name = 'editaravatar'),
+    
     
     
     

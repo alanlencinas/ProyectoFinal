@@ -1,0 +1,28 @@
+{% extends 'Mensajeria/padre3.html' %}
+
+{% block titulo %}Enviar mensaje{% endblock %}
+
+{% block contenido_que_cambia %}
+<div class="container">
+    <h1>Enviar mensaje</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="contenido">Mensaje:</label>
+            <textarea class="form-control" id="contenido" name="contenido" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="receiver_id">Destinatario:</label>
+            <select class="form-control" id="receiver_id" name="receiver_id">
+                <option value="" selected disabled>Selecciona un destinatario</option>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br></br>
+        <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+    <a class="btn btn-secondary mt-3" href="{% url 'inbox' %}">Volver a la bandeja de entrada</a>
+</div>
+{% endblock %}

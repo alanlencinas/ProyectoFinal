@@ -25,7 +25,7 @@
             <img src="{% static 'AppCoder/assets/img/mia.jpg' %}" alt="Logo" class="d-inline-block align-text-top logo-image">
             <div class="container">
                 
-                <a class="navbar-brand" href="{% url 'inicio' %}">æ <u><b>NATURA</b></u> æ</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}"><b>Natura</b>
                 
                 {% if user.is_authenticated %}
                 <a class="btn btn-primary" href="{% url 'index' %}" style = "Color: black;"><u><b>NuestroBlog</b></u></a>
@@ -34,6 +34,7 @@
                 <a class="btn btn-primary" href="{% url 'cuidadocorporal' %}" style = "Color: black;"><u><b>Ciudado Corporal</b></u></a>
                 <a class="btn btn-primary" href="{% url 'cabello' %}" style = "Color: black;"><u><b>Cabello</b></u></a>
                 <a class="btn btn-primary" href="{% url 'clientes' %}" style = "Color: black;"><u><b>Clientes</b></u></a>
+                <a class="btn btn-primary" href="{% url 'inbox' %}" style = "Color: black;"><u><b>Inbox</b></u></a>
                 <p>Bienvenido: <b>{{ user.username }}</b></p>
                 <img src="{{ avatar }}" alt="Avatar" style= "width:50px;height:10" />
                 <a class="btn btn-success" href="{% url 'logout' %}" style = "Color: black;"><u><b>Log Out</b></u></a>

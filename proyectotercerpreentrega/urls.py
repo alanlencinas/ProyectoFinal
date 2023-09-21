@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name = 'inicio'),
     path('AppCoder/', include('AppCoder.urls')),
-    path('MiBlog/', include('MiBlog.urls')),    
+    path('MiBlog/', include('MiBlog.urls')),
+    path('Mensajeria/', include('Mensajeria.urls')),
     
 ]
 

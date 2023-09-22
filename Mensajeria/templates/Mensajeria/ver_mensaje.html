@@ -1,0 +1,21 @@
+{% extends 'Mensajeria/padre3.html' %}
+
+{% block contenido_que_cambia %}
+    <br></br>
+    <div class="message-container">
+        
+        <h2>Detalle del mensaje</h2>
+        <div class="message">
+            <br></br>
+            <h3><b>De:</b> {{ message.emisor }}</h3>
+            <p><b>Asunto:</b> {{ message.asunto }}</p>
+            <p><b>Fecha:</b> {{ message.timestamp }}</p>
+            <div class="message-content">
+                <p><b>Mensaje:</b> {{ message.contenido }}
+            </div>
+        </div>
+        <a class="btn btn-secondary mt-3" href="{% url 'inbox' %}">Volver a la bandeja de entrada</a>
+        <a class="btn btn-danger mt-3" href="{% url 'borrar_mensaje' message.id %}">Eliminar Mensaje</a>
+
+    </div>
+{% endblock %}

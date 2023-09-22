@@ -11,4 +11,4 @@ class Mensajeria(models.Model):
     is_read = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Mensaje de {self.emisor} para {self.receptor} ({self.timestamp})"
+        return f"Mensaje de {self.emisor} para {self.receptor} de asunto {self.asunto} ({self.timestamp})"

@@ -1,20 +1,30 @@
 {% extends 'Mensajeria/padre3.html' %}
 
+
 {% block contenido_que_cambia %}
-    <br></br>
-    <h2>Mensajes en tu bandeja de entrada</h2>
-    {% for message in messages %}
-        <div class="message">
-            <h3>De: {{ message.emisor }}</h3>
-            <p>Asunto: {{ message.asunto }}</p>
-            <p>Fecha: {{ message.timestamp }}</p>
-            <a href="{% url 'view_message'%}">Ver mensaje</a>
-            <div class="message-content">
-                {{ message.content }}
-            </div>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <div class="inbox-container">
+        <h2 class="inbox-header">Mensajes en tu bandeja de entrada</h2>
+        <div class="message-list">
+            {% for message in messages %}
+                <div class="message">
+                    <h3>De: {{ message.emisor }}</h3>
+                    <p>Asunto: {{ message.asunto }}</p>
+                    <p>Fecha: {{ message.timestamp }}</p>
+                    <a href="{% url 'ver_mensaje' message_id=message.id %}" class="message-link">Ver mensaje</a>
+                    <div class="message-content">
+                        {{ message.content }}
+                    </div>
+                </div>
+            {% empty %}
+                <p class="no-messages">No tienes mensajes en tu bandeja de entrada.</p>
+            {% endfor %}
         </div>
-    {% empty %}
-        <p>No tienes mensajes en tu bandeja de entrada.</p>
-    {% endfor %}
-    <a class="btn btn-primary" href="{% url 'enviar_mensaje' %}">Enviar mensaje</a>
+        <a class="btn btn-primary" href="{% url 'enviar_mensaje' %}">Enviar mensaje</a>
+    </div>
 {% endblock %}
+
+
+
+

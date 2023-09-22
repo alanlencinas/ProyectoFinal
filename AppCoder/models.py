@@ -52,4 +52,7 @@ class Avatar(models.Model):
     imagen=models.ImageField(upload_to="avatars", null=True, blank= True)
     
     
+
+    
+    
     

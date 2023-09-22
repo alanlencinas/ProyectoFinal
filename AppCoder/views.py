@@ -23,22 +23,30 @@ def inicio(request):
 
 @login_required
 def editaravatar(request):
+    user = request.user  # Obtén el usuario actual
+
     if request.method == 'POST':
-        form = AvatarForm(request.POST, request.FILES)
+        form = AvatarForm(request.POST, request.FILES, instance=user.avatar)  # Pasa la instancia del avatar actual
         if form.is_valid():
-            # Guarda el avatar asociado al usuario actual
-            avatar = form.save(commit=False)  # Utiliza commit=False para evitar la guardia inmediata
-            avatar.user = request.user  # Asocia el usuario actual al avatar
-            avatar.save()  # Guarda el avatar con el usuario asociado
-            messages.success(request, 'Avatar actualizado con éxito.')  # Mensaje de éxito
-            return redirect('inicio')  # Redirecciona a la página deseada
+            # Guarda la nueva imagen en el campo 'imagen' del avatar
+            avatar = form.save(commit=False)
+            avatar.user = user
+            avatar.save()
+
+            messages.success(request, 'Avatar actualizado con éxito.')
+            return redirect('inicio')
         else:
             messages.error(request, 'Hubo un error al cargar el avatar. Por favor, verifica los datos.')
-
     else:
-        form = AvatarForm()
+        # Si el usuario no tiene un avatar, crea uno vacío
+        if not hasattr(user, 'avatar'):
+            user.avatar = Avatar.objects.create(user=user, imagen=None)
+            user.save()
 
-    return render(request, 'AppCoder/editaravatar.html', {'form': form, "avatar": obtenerAvatar(request)})
+        form = AvatarForm(instance=user.avatar)  # Pasa la instancia del avatar actual
+
+    return render(request, 'AppCoder/editaravatar.html', {'form': form, 'avatar': obtenerAvatar(request)})
+
 
 def cabello(request):
     if request.method =="POST":

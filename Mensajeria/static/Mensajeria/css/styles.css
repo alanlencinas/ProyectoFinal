@@ -1,79 +1,41 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-}
-
-.inbox-container {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    padding: 20px;
-}
-
-h2.inbox-header {
-    color: #007bff;
-}
-
-.message-list {
+/* styles.css */
+.message-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
 }
 
-/* Estilos de los mensajes */
-.message {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
+.message-table th, .message-table td {
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
 }
 
-.message:hover {
-    transform: scale(1.02);
+.message-table th {
+    background-color: #f2f2f2;
 }
 
-.message h3 {
+.message-link {
+    text-decoration: none;
     color: #007bff;
+    font-weight: bold;
 }
 
-.message-content {
-    margin-top: 10px;
-}
-
-/* Estilos para el mensaje de "No tienes mensajes" */
 .no-messages {
     font-style: italic;
-    color: #777;
+    color: #999;
 }
 
-/* Estilos para el botón "Enviar mensaje" */
-.btn {
+
+.contador-circular {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.2s ease-in-out;
+    width: 24px; /* Ancho del contador */
+    height: 24px; /* Altura del contador */
+    line-height: 24px; /* Igual al alto para centrar verticalmente el texto */
+    text-align: center; /* Centra el texto horizontalmente */
+    border-radius: 50%; /* Hace que el div sea circular */
+    background-color: red; /* Fondo rojo */
+    color: white; /* Texto en blanco */
+    font-weight: bold;
 }
 
-.btn:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos para los enlaces de los mensajes */
-.message-link {
-    color: #007bff;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-.message-link:hover {
-    text-decoration: underline;
-}

@@ -33,8 +33,18 @@
                 <a class="btn btn-primary" href="{% url 'maquillaje' %}" style = "Color: black;"><u><b>Maquillaje</b></u></a>
                 <a class="btn btn-primary" href="{% url 'cuidadocorporal' %}" style = "Color: black;"><u><b>Ciudado Corporal</b></u></a>
                 <a class="btn btn-primary" href="{% url 'cabello' %}" style = "Color: black;"><u><b>Cabello</b></u></a>
-                <a class="btn btn-primary" href="{% url 'clientes' %}" style = "Color: black;"><u><b>Clientes</b></u></a>
-                <a class="btn btn-primary" href="{% url 'inbox' %}" style = "Color: black;"><u><b>Inbox</b></u></a>
+                {% if request.user.is_superuser%}
+                    <a class="btn btn-primary" href="{% url 'clientes' %}" style = "Color: black;"><u><b>Clientes</b></u></a>
+                {% endif %}
+                <link rel="stylesheet" type="text/css" href="{% static 'Mensajeria/css/styles.css' %}">
+                <a class="btn btn-primary" href="{% url 'inbox' %}" style="color: black;">
+                    <u><b>Inbox</b></u>
+                    {% if mensajes_no_leidos > 0 %}
+                        <div class="contador-circular">
+                            {{ mensajes_no_leidos }}
+                        </div>
+                    {% endif %}
+                </a>   
                 <p>Bienvenido: <b>{{ user.username }}</b></p>
                 <img src="{{ avatar }}" alt="Avatar" style= "width:50px;height:10" />
                 <a class="btn btn-success" href="{% url 'logout' %}" style = "Color: black;"><u><b>Log Out</b></u></a>

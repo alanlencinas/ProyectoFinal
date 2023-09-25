@@ -36,13 +36,16 @@ def enviar_mensaje(request):
 def inbox(request):
     # Filtrar los mensajes por el destinatario actual (usuario autenticado)
     messages = Mensajeria.objects.filter(receptor=request.user)
-    return render(request, 'Mensajeria/inbox.html', {'messages': messages, 'avatar': obtenerAvatar(request)})
+    mensajesnoleidos = Mensajeria.objects.filter(receptor = request.user, is_read=False).count()
+    return render(request, 'Mensajeria/inbox.html', {'messages': messages, 'avatar': obtenerAvatar(request),'mensajes_no_leidos': mensajesnoleidos})
 
 
 @login_required
 def ver_mensaje(request, message_id):
     # Obtener el mensaje específico o mostrar una página de error 404 si no existe
     mensaje = get_object_or_404(Mensajeria, pk=message_id)
+    mensaje.is_read=True
+    mensaje.save()
     
     # Aquí puedes agregar lógica adicional si es necesario, como marcar el mensaje como leído, etc.
 
@@ -51,13 +54,9 @@ def ver_mensaje(request, message_id):
 
 @login_required
 def borrar_mensaje(request, message_id):
-    # Obtén el mensaje específico o muestra una página de error 404 si no existe
     mensaje = get_object_or_404(Mensajeria, pk=message_id)
-
-    # Asegúrate de que el usuario actual sea el remitente o el destinatario del mensaje antes de eliminarlo
     if mensaje.emisor == request.user or mensaje.receptor == request.user:
         mensaje.delete()
-        return redirect('inbox')  # Redirige de nuevo a la bandeja de entrada
+        return redirect('inbox')
     else:
-        # En caso de que el usuario no sea el remitente o el destinatario, puedes mostrar un mensaje de error o redirigir a una página de error.
-        return redirect('inbox')  # O redirige a una página de error específica si lo deseas
+        return redirect('inbox') 

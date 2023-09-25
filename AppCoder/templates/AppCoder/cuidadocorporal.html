@@ -5,6 +5,7 @@
 {% block titulo %} Cuidado Corporal! <br><br>- NATURA- </br></br> {% endblock %}
 
 {% block contenido_que_cambia %}
+{% if request.user.is_superuser %}
 <h4>Formulario Cuidado Corporal</h4>
 <br></br>
 
@@ -15,36 +16,47 @@
     <br></br>
     <input type="submit" value="Agregar">
 </form>
-
+{% endif %}
 <br></br>
-
-<table>
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Sexo</th>
-        <th>Precio</th>
-        <th>Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for cuidadoscorporales in cuidadoscorporales %}
-      <tr>
-        <td>{{ cuidadoscorporales.Codigo }}</td>
-        <td>{{ cuidadoscorporales.Nombre }}</td>
-        <td>{{ cuidadoscorporales.Sexo }}</td>
-        <td>{{ cuidadoscorporales.Precio }}</td>
-        <td>
-            <a class="btn btn-danger" href="{% url 'eliminarcuidadocorporal' cuidadoscorporales.id %}" style = "Color: black;"><u><b>Eliminar</b></u></a>
-            <a class="btn btn-primary" href="{% url 'editarcuidadocorporal' cuidadoscorporales.id %}" style = "Color: black;"><u><b>Editar</b></u></a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
+<div class="table-container">
+  <table class="table table-custom">
+      <h3>Lista de Productos</h3>
+      <br></br>
+      <thead>
+          <tr class="table-header">
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Sexo</th>
+              <th>Precio</th>
+              {% if request.user.is_superuser %}
+              <th>Opciones</th>
+              {% endif %}
+          </tr>
+      </thead>
+      <tbody>
+          {% for cuidadocorporal in cuidadoscorporales %}
+          <tr>
+              <td>{{ cuidadocorporal.Codigo }}</td>
+              <td>{{ cuidadocorporal.Nombre }}</td>
+              <td>{{ cuidadocorporal.Sexo }}</td>
+              <td>{{ cuidadocorporal.Precio }}</td>
+              {% if request.user.is_superuser %}
+              <td>
+                  <a class="btn btn-danger" href="{% url 'eliminarcuidadocorporal' cuidadocorporal.id %}" style="color: black;">
+                      <u><b>Eliminar</b></u>
+                  </a>
+                  <a class="btn btn-primary" href="{% url 'editarcuidadocorporal' cuidadocorporal.id %}" style="color: black;">
+                      <u><b>Editar</b></u>
+                  </a>
+              </td>
+              {% endif %}
+          </tr>
+          {% endfor %}
+      </tbody>
   </table>
+</div>
 
-<br></br>
+
 <h3>{{mensaje }}</h3>
 
 

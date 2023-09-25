@@ -5,10 +5,19 @@ from .forms import perfumeria_Formulario, cuidado_Corporal_Formulario, maquillaj
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.shortcuts import render, redirect
+
+
 # Create your views here.
+
+
+
+
+
+
+
 
 def obtenerAvatar(request):
     avatares=Avatar.objects.filter(user=request.user.id)
@@ -47,7 +56,6 @@ def editaravatar(request):
 
     return render(request, 'AppCoder/editaravatar.html', {'form': form, 'avatar': obtenerAvatar(request)})
 
-
 def cabello(request):
     if request.method =="POST":
         form=cabello_Formulario(request.POST)
@@ -77,6 +85,7 @@ def eliminarcabello(request, id):
     mensaje = 'Producto de Cabello Eliminado'
     return render(request, "AppCoder/cabello.html", {"mensaje": mensaje, "formulario": formulario_cabello, "cabellos": cabellos, "avatar":obtenerAvatar(request)})    
 
+
 def editarcabello(request, id):
     cabello = Cabello.objects.get(id=id)
     if request.method=='POST':
@@ -88,7 +97,7 @@ def editarcabello(request, id):
             cabello.Sexo = info["Sexo"]  
             cabello.Precio = info["Precio"]
             cabello.save()
-            mensaje = "Produco de Cabello editado"
+            mensaje = "Producto de Cabello editado"
             cabellos = Cabello.objects.all()
             formulario_cabello = cabello_Formulario()
             return render(request, "AppCoder/cabello.html", {"formulario": formulario_cabello, "cabellos":cabellos, "mensaje": mensaje, "avatar":obtenerAvatar(request)})

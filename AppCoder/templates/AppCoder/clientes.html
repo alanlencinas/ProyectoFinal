@@ -18,33 +18,36 @@
 
 <br></br>
 
-<table>
-    <thead>
+<table class="table table-striped table-bordered">
+  <thead>
       <tr>
-        <th>Apellido</th>
-        <th>Nombre</th>
-        <th>DNI</th>
-        <th>Email</th>
-        <th>Opciones</th>
-
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>DNI</th>
+          <th>Email</th>
+          <th>Opciones</th>
       </tr>
-    </thead>
-    <tbody>
-      {% for clientes in clientes %}
+  </thead>
+  <tbody>
+      {% for cliente in clientes %}
       <tr>
-        <td>{{ clientes.Apellido }}</td>
-        <td>{{ clientes.Nombre }}</td>
-        <td>{{ clientes.DNI }}</td>
-        <td>{{ clientes.Email }}</td>
-        <td>
-            <a class="btn btn-danger" href="{% url 'eliminarcliente' clientes.id %}" style = "Color: black;"><u><b>Eliminar</b></u></a>
-            <a class="btn btn-primary" href="{% url 'editarcliente' clientes.id %}" style = "Color: black;"><u><b>Editar</b></u></a>
-        </td>
+          <td>{{ cliente.Apellido }}</td>
+          <td>{{ cliente.Nombre }}</td>
+          <td>{{ cliente.DNI }}</td>
+          <td>{{ cliente.Email }}</td>
+          <td>
+              <a class="btn btn-danger" href="{% url 'eliminarcliente' cliente.id %}" style="color: black;">
+                  <u><b>Eliminar</b></u>
+              </a>
+              <a class="btn btn-primary" href="{% url 'editarcliente' cliente.id %}" style="color: black;">
+                  <u><b>Editar</b></u>
+              </a>
+          </td>
       </tr>
       {% endfor %}
-    </tbody>
-  </table>
-<br></br>
+  </tbody>
+</table>
+
 <h3>{{mensaje }}</h3>
 
 

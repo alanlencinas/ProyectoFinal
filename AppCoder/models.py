@@ -36,7 +36,7 @@ class Cabello(models.Model):
     Precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     def __str__(self):
         return f'{self.Codigo} - {self.Nombre} - {self.Sexo} - {self.Precio}'
-    
+
     
 class Clientes(models.Model):
     Apellido = models.CharField(max_length=50)

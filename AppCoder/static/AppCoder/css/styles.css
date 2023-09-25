@@ -10952,3 +10952,29 @@ footer.footer {
   font-size: 40px; /* Cambiar el tamaño de la fuente */
   color: #25cff2; /* Cambiar el color de la fuente */
 }
+
+
+.table-container {
+    max-width: 800px; /* Puedes ajustar este valor según tus necesidades */
+    margin: 0 auto; /* Centra el contenedor horizontalmente en la página */
+}
+
+/* Personalizar la tabla */
+.table-custom {
+  border: 1px solid black; /* Establece el color de las líneas de la tabla */
+  width: 100%; /* Ocupa el ancho completo del contenedor */
+  border-collapse: collapse; /* Combina los bordes de las celdas */
+}
+
+/* Personalizar el encabezado de la tabla */
+.table-header {
+  background-color: lightblue; /* Establece el color de fondo del encabezado de columna */
+  color: black; /* Establece el color del texto del encabezado de columna */
+}
+
+/* Personalizar las celdas de datos de la tabla */
+.table-custom td,
+.table-custom th {
+  border: 1px solid black; /* Establece el color de las líneas de las celdas */
+  padding: 8px; /* Añade espacio alrededor del contenido de la celda */
+}

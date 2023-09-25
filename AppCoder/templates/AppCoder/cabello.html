@@ -5,6 +5,7 @@
 {% block titulo %} Cabello! <br><br>- NATURA- </br></br> {% endblock %}
 
 {% block contenido_que_cambia %}
+{% if request.user.is_superuser %}
 <h4>Formulario Productos de Cabello</h4>
 <br></br>
 
@@ -15,35 +16,48 @@
     <br></br>
     <input type="submit" value="Agregar">
 </form>
-
+{% endif %}
 <br></br>
 
-<table>
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Sexo</th>
-        <th>Precio</th>
-        <th>Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for cabellos in cabellos %}
-      <tr>
-        <td>{{ cabellos.Codigo }}</td>
-        <td>{{ cabellos.Nombre }}</td>
-        <td>{{ cabellos.Sexo }}</td>
-        <td>{{ cabellos.Precio }}</td>
-        <td>
-            <a class="btn btn-danger" href="{% url 'eliminarcabello' cabellos.id %}" style = "Color: black;"><u><b>Eliminar</b></u></a>
-            <a class="btn btn-primary" href="{% url 'editarcabello' cabellos.id %}" style = "Color: black;"><u><b>Editar</b></u></a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
+<div class="table-container">
+  <table class="table table-custom">
+      <h3>Lista de Productos</h3>
+      <br></br>
+      <thead>
+          <tr class="table-header">
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Sexo</th>
+              <th>Precio</th>
+              {% if request.user.is_superuser %}
+              <th>Opciones</th>
+              {% endif %}
+          </tr>
+      </thead>
+      <tbody>
+          {% for cabello in cabellos %}
+          <tr>
+              <td>{{ cabello.Codigo }}</td>
+              <td>{{ cabello.Nombre }}</td>
+              <td>{{ cabello.Sexo }}</td>
+              <td>{{ cabello.Precio }}</td>
+              {% if request.user.is_superuser %}
+              <td>
+                  <a class="btn btn-danger" href="{% url 'eliminarcabello' cabello.id %}" style="color: black;">
+                      <u><b>Eliminar</b></u>
+                  </a>
+                  <a class="btn btn-primary" href="{% url 'editarcabello' cabello.id %}" style="color: black;">
+                      <u><b>Editar</b></u>
+                  </a>
+              </td>
+              {% endif %}
+          </tr>
+          {% endfor %}
+      </tbody>
   </table>
-<br></br>
+</div>
+
+
 <h3>{{ mensaje }}</h3>
 
 

@@ -5,6 +5,7 @@
 {% block titulo %} Maquillaje! <br><br>- NATURA- </br></br> {% endblock %}
 
 {% block contenido_que_cambia %}
+{% if request.user.is_superuser %}
 <h4>Formulario Maquillaje</h4>
 <br></br>
 
@@ -16,34 +17,45 @@
     <input type="submit" value="Agregar">
 
 </form>
-
-<br></br>
-
-<table>
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for maquillajes in maquillajes %}
-      <tr>
-        <td>{{ maquillajes.Codigo }}</td>
-        <td>{{ maquillajes.Nombre }}</td>
-        <td>{{ maquillajes.Precio }}</td>
-        <td>
-            <a class="btn btn-danger" href="{% url 'eliminarmaquillaje' maquillajes.id %}" style = "Color: black;"><u><b>Eliminar</b></u></a>
-            <a class="btn btn-primary" href="{% url 'editarmaquillaje' maquillajes.id %}" style = "Color: black;"><u><b>Editar</b></u></a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
+{% endif %}
+<div class="table-container">
+  <table class="table table-custom">
+      <h3>Lista de Productos</h3>
+      <br></br>
+      <thead>
+          <tr class="table-header">
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              {% if request.user.is_superuser %}
+              <th>Opciones</th>
+              {% endif %}
+          </tr>
+      </thead>
+      <tbody>
+          {% for maquillaje in maquillajes %}
+          <tr>
+              <td>{{ maquillaje.Codigo }}</td>
+              <td>{{ maquillaje.Nombre }}</td>
+              <td>{{ maquillaje.Precio }}</td>
+              {% if request.user.is_superuser %}
+              <td>
+                  <a class="btn btn-danger" href="{% url 'eliminarmaquillaje' maquillaje.id %}">
+                      <u><b>Eliminar</b></u>
+                  </a>
+                  <a class="btn btn-primary" href="{% url 'editarmaquillaje' maquillaje.id %}">
+                      <u><b>Editar</b></u>
+                  </a>
+              </td>
+              {% endif %}
+          </tr>
+          {% endfor %}
+      </tbody>
   </table>
+</div>
 
-  <br></br>
+
+
   
 <h3>{{ mensaje }}</h3>
 {% endblock %}

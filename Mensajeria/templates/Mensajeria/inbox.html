@@ -1,30 +1,42 @@
 {% extends 'Mensajeria/padre3.html' %}
 
-
 {% block contenido_que_cambia %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-    <div class="inbox-container">
-        <h2 class="inbox-header">Mensajes en tu bandeja de entrada</h2>
-        <div class="message-list">
-            {% for message in messages %}
-                <div class="message">
-                    <h3>De: {{ message.emisor }}</h3>
-                    <p>Asunto: {{ message.asunto }}</p>
-                    <p>Fecha: {{ message.timestamp }}</p>
-                    <a href="{% url 'ver_mensaje' message_id=message.id %}" class="message-link">Ver mensaje</a>
-                    <div class="message-content">
-                        {{ message.content }}
-                    </div>
-                </div>
-            {% empty %}
-                <p class="no-messages">No tienes mensajes en tu bandeja de entrada.</p>
-            {% endfor %}
-        </div>
-        <a class="btn btn-primary" href="{% url 'enviar_mensaje' %}">Enviar mensaje</a>
+<link rel="stylesheet" type="text/css" href="{% static 'AppCoder/styles.css' %}">
+<div class="inbox-container">
+    <div class="table-container">
+        <table class="table table-custom">
+            <h3>Bandeja de entrada</h3>
+            <br></br>
+            <thead>
+                <tr class="table-header">
+                    <th>De</th>
+                    <th>Asunto</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in messages %}
+                <tr>
+                    <td>{{ message.emisor }}</td>
+                    <td>{{ message.asunto }}</td>
+                    <td>{{ message.timestamp }}</td>
+                    <td>
+                        <a href="{% url 'ver_mensaje' message_id=message.id %}" class="btn btn-primary" style="color: black;">
+                            <u><b>Ver mensaje</b></u>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="no-messages"><b>No tienes mensajes en tu bandeja de entrada.</b></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+    <a class="btn btn-primary" href="{% url 'enviar_mensaje' %}">Enviar mensaje</a>
+</div>
 {% endblock %}
-
-
-
 

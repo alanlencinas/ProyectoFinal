@@ -1,17 +1,35 @@
- {% extends 'AppCoder/padre.html' %}
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
 
- {% load static %}
-
- {% block titulo %} Esta es la pagina de resultados de busqueda! <br><br>- NATURA- </br></br> {% endblock %}
-
- {% block contenido_que_cambia %}
-    <h1>Resultados de Busqueda</h1>
-    <br>
-    <h3> {{ mensaje }} </h3>
-
-    {% for perfumes in perfumes %}
-
-        <h3>{{ perfumes.Codigo }} - {{ perfumes.Nombre }}</h3>
-
-    {% endfor %}
+{% block titulo %}
+    <div class="titulo">
+        <p class="titulo-texto">Resultados de Búsqueda</p>
+        <p class="natura-texto">- NATURA -</p>
+    </div>
 {% endblock %}
+
+{% block contenido_que_cambia %}
+    <h1>Resultados de Búsqueda</h1>
+    <br>
+    <h3>{{ mensaje }}</h3>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for perfume in perfumes %}
+            <tr>
+                <td>{{ perfume.Codigo }}</td>
+                <td>{{ perfume.Nombre }}</td>
+                <td>{{ perfume.Precio }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

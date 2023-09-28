@@ -8,20 +8,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from Mensajeria.models import Mensajeria
 
 
 # Create your views here.
 
 
 
-
-
-
-
-
 def obtenerAvatar(request):
     avatares=Avatar.objects.filter(user=request.user.id)
-    if len(avatares)!=0:
+    if len(avatares)!=0 and avatares[0].imagen:
         return avatares[0].imagen.url
     else:
         return "/media/avatars/avatarpordefecto.png"
@@ -35,9 +31,11 @@ def editaravatar(request):
     user = request.user  # Obtén el usuario actual
 
     if request.method == 'POST':
-        form = AvatarForm(request.POST, request.FILES, instance=user.avatar)  # Pasa la instancia del avatar actual
+        form = AvatarForm(request.POST, request.FILES)
         if form.is_valid():
-            # Guarda la nueva imagen en el campo 'imagen' del avatar
+            avatar_anterior = Avatar.objects.filter(user=request.user)
+            if (len(avatar_anterior) > 0):
+                avatar_anterior.delete()
             avatar = form.save(commit=False)
             avatar.user = user
             avatar.save()
@@ -45,14 +43,10 @@ def editaravatar(request):
             messages.success(request, 'Avatar actualizado con éxito.')
             return redirect('inicio')
         else:
-            messages.error(request, 'Hubo un error al cargar el avatar. Por favor, verifica los datos.')
+            messages.error(
+                request, 'Hubo un error al cargar el avatar. Por favor, verifica los datos.')
     else:
-        # Si el usuario no tiene un avatar, crea uno vacío
-        if not hasattr(user, 'avatar'):
-            user.avatar = Avatar.objects.create(user=user, imagen=None)
-            user.save()
-
-        form = AvatarForm(instance=user.avatar)  # Pasa la instancia del avatar actual
+        form = AvatarForm()
 
     return render(request, 'AppCoder/editaravatar.html', {'form': form, 'avatar': obtenerAvatar(request)})
 

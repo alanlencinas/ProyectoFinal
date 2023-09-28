@@ -39,12 +39,12 @@
                 <link rel="stylesheet" type="text/css" href="{% static 'Mensajeria/css/styles.css' %}">
                 <a class="btn btn-primary" href="{% url 'inbox' %}" style="color: black;">
                     <u><b>Inbox</b></u>
-                    {% if mensajes_no_leidos > 0 %}
+                    {% if request.session.mensajes_no_leidos > 0 %}
                         <div class="contador-circular">
-                            {{ mensajes_no_leidos }}
+                            {{ request.session.mensajes_no_leidos }}
                         </div>
                     {% endif %}
-                </a>   
+                </a>    
                 <p>Bienvenido: <b>{{ user.username }}</b></p>
                 <img src="{{ avatar }}" alt="Avatar" style= "width:50px;height:10" />
                 <a class="btn btn-success" href="{% url 'logout' %}" style = "Color: black;"><u><b>Log Out</b></u></a>

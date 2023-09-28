@@ -13,6 +13,11 @@ from Mensajeria.models import Mensajeria
 
 # Create your views here.
 
+@login_required
+def get_inbox(request):
+    mensajesnoleidos = Mensajeria.objects.filter(
+        receptor = request.user, is_read = False).count()
+    request.session['mensajes_no_leidos'] = mensajesnoleidos
 
 
 def obtenerAvatar(request):
@@ -323,6 +328,7 @@ def login_request(request):
             usuario=authenticate(username=usu, password=clave)
             if usuario is not None:
                 login(request, usuario)
+                get_inbox(request)
                 return render(request, "AppCoder/inicio.html", {'mensaje': f'Usuario {usu} logueado correctamente', "avatar": obtenerAvatar(request)})
             else:
                 return render(request, "AppCoder/login.html", {'mensaje': "Datos Invalidos"})

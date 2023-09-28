@@ -36,6 +36,7 @@ def enviar_mensaje(request):
 def inbox(request):
     # Filtrar los mensajes por el destinatario actual (usuario autenticado)
     messages = Mensajeria.objects.filter(receptor=request.user)
+    get_inbox(request)
     mensajesnoleidos = Mensajeria.objects.filter(receptor = request.user, is_read=False).count()
     return render(request, 'Mensajeria/inbox.html', {'messages': messages, 'avatar': obtenerAvatar(request),'mensajes_no_leidos': mensajesnoleidos})
 

@@ -2,20 +2,32 @@
 
 Este proyecto lo estoy realizando con el fin de tener una base de datos para un emprendimiento propio, con mi pareja somos revendedores de natura, por lo que se creo una pagina con distintas secciones Perfumeria, Maquillaje, Cuidado Corporal, Cabello y Clientes.
 
-Usted podra entrar a los formularios de cada seccion, ver lo actualmente disponible y eliminar registros.
+Para poder ingresar a la web, usted tendrá que registrarse.
 
-Para acceder deberia de poder clonar este github, y luego acceder a la carpeta donde se encuentra el manage.py y ejecutar python manage.py runserver
+Una vez registrado usted deberá loguearse para poder acceder a nuestro contenido, incluyendo nuestro blog.
 
-Una vez que este en la pagina principal usted tendrá que registrarse para acceder a todo el contenido.
+Podra ver nuestras secciones (salvo Clientes), ver nuestros productos disponibles y accederá si usted desea a nuestro blog.
 
-Una vez que se registra, luego le va pedir loguearse, una vez logueado ya puede interactuar con la pagina. Tambien podra visualizar avatars. Si usted desea cargar un avatar, deberá de cargarlo desde el admin.
+Podra loguearse con:
+usuario: admin
+contraseña: admin
 
-Le agregue un boton que apunta al blog que lo estoy realizando todavia.
+Para acceder a nuestros formularios para cargar productos a cada sección, editar y eliminar los productos. NOTA: Solo el superusuario, en este caso admin podra realizar esto.
+El resto de los usuarios tendran permiso de solo lectura.
 
-NOTA IMPORTANTE:
+Al registrarse usted obtendrá un avatar por defecto, el cual luego podrá editar desde nuestra sección "Editar Perfil" y podrá poner la imagen que usted quiera como avatar.
 
-El proyecto no está finalizado, me faltan pulir unas cositas, y realizar la aplicacion de mensajes, pero honestamente por cuestiones de tiempo no pude llegar. Por lo que me gustaria que puedan otorgarme una posibilidad de segunda entrega.
+Tambien cuenta con un sistema de mensajeria, desde la sección "Inbox", donde mostrará la bandeja de entrada de mensajes. Usted podrá mandar mensajes a otros usuarios que esten registrados
+en la plataforma.
 
-Estoy abierto a comentarios con respecto al proyecto, la verdad que voy disfrutando todo este camino, pero necesito que me indiquen las cosas a corregir para la entrega final, honestamente por cuestiones de tiempo, temas laborales y demas no pude llegar a finalizarlo como me gustaria.
 
-Gracias al profesor y tutores.
+-------------------------------------------------------------------
+
+Realmente quiero agradecerles, porque disfrute muchisimo todo el proceso de este proyecto y cursada, quiero seguir agregandole cosas, me costó muchisimo lograr esto, ya que es mi
+primera experiencia con el mundo de la programación.
+
+Estoy abierto a comentarios sobre el proyectos y cosas a mejorar.
+
+Muchas gracias.
+
+

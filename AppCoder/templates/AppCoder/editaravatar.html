@@ -9,6 +9,9 @@
  <form action = "{% url 'editaravatar' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_table }}
+    <div id="image-preview" style="display: none;">
+        <img id="preview" src="" alt="Vista previa de la imagen" style="max-width: 300px; max-height: 300px;">
+    </div>
     <input type="submit" value="Cargar">
 </form>
 

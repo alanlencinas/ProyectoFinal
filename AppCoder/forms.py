@@ -59,3 +59,10 @@ class AvatarForm(forms.ModelForm):
     class Meta:
         model = Avatar
         fields = ['user', 'imagen']
+        
+    def __init__(self, *args, **kwargs):
+        user =kwargs.pop('user', None)
+        super(AvatarForm, self).__init__(*args, **kwargs)
+        if user:
+            self.fields['user'].initial = user
+            self.fields['user'].widget = forms.HiddenInput()

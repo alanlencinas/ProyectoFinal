@@ -36,7 +36,7 @@ def editaravatar(request):
     user = request.user  # Obtén el usuario actual
 
     if request.method == 'POST':
-        form = AvatarForm(request.POST, request.FILES)
+        form = AvatarForm(request.POST, request.FILES, user=user)
         if form.is_valid():
             avatar_anterior = Avatar.objects.filter(user=request.user)
             if (len(avatar_anterior) > 0):
@@ -51,7 +51,7 @@ def editaravatar(request):
             messages.error(
                 request, 'Hubo un error al cargar el avatar. Por favor, verifica los datos.')
     else:
-        form = AvatarForm()
+        form = AvatarForm(user=user)
 
     return render(request, 'AppCoder/editaravatar.html', {'form': form, 'avatar': obtenerAvatar(request)})
 
@@ -61,12 +61,15 @@ def cabello(request):
         if form.is_valid():
             info=form.cleaned_data
             codigo = info["Codigo"]
-            nombre=info["Nombre"]
-            sexo=info["Sexo"]  
-            precio=info["Precio"]
-            cabello = Cabello(Codigo=codigo, Nombre=nombre, Sexo=sexo, Precio=precio)
-            cabello.save()
-            mensaje = "Produco de Cabello Creado"
+            if Cabello.objects.filter(Codigo=codigo).exists():
+                mensaje="El codigo ya existe en la base de datos."
+            else:
+                nombre=info["Nombre"]
+                sexo=info["Sexo"]  
+                precio=info["Precio"]
+                cabello = Cabello(Codigo=codigo, Nombre=nombre, Sexo=sexo, Precio=precio)
+                cabello.save()
+                mensaje = "Produco de Cabello Creado"
         else:
             mensaje = "Datos Inválidos"
     else:

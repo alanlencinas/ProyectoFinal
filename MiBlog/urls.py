@@ -7,7 +7,6 @@ urlpatterns = [
   path('perfumeriadetalle', perfumeriadetalle, name = 'perfumeriadetalle' ),
   path('dejar_mensaje/', views.dejar_mensaje, name='dejar_mensaje'),
   path('leer_comentario/', views.leer_comentario, name='leer_comentario'),
-
 ]
 
 

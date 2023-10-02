@@ -70,7 +70,6 @@
                     </article>
                     <!-- Comments section-->
                     <!-- Sección de comentarios -->
-                    <h2>Comentarios</h2>
 
                     <!-- Mostrar comentarios existentes -->
                     {% if mensajes %}
@@ -97,10 +96,10 @@
                     <!-- Formulario para dejar un nuevo comentario -->
                     <div class="leave-comment">
                         <h3>Dejar un comentario</h3>
-                        <form method="post">
+                        <form method="post" action= "{% url 'dejar_mensaje' %}">
                             {% csrf_token %}
                             {{ mensaje_form.as_p }}
-                            <a href = "{% url 'dejar_mensaje' %}">Enviar comentario </a>
+                            <input type="submit" value= "Enviar comentario" </a>
                         </form>
                     </div>
                 </div>

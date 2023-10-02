@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 def inicio1(request):
     mensaje_form=MensajeForm()
-    return render(request, 'MiBlog/blog.html', {"avatar": obtenerAvatar(request), 'mensaje_form': mensaje_form})
+    return render(request, 'MiBlog/blog.html', {"avatar": obtenerAvatar(request), 'mensaje_form': mensaje_form, 'mensajes': Mensaje.objects.all()})
 
 def perfumeriadetalle(request):
     return render(request, "MiBlog/perfumeriadetalle.html", {"avatar": obtenerAvatar(request)})
@@ -24,11 +24,11 @@ def dejar_mensaje(request):
             mensaje.autor = request.user  # Asigna el autor del mensaje
             mensaje.save()  # Guarda el mensaje en la base de datos
             form=MensajeForm()
-            return redirect('MiBlog/blog.html', {'mensaje_form': form})  # Redirige a la página del blog después de dejar el mensaje
+            return redirect('blog', {'mensaje_form': form})  # Redirige a la página del blog después de dejar el mensaje
     else:
         form = MensajeForm()
 
-    return render(request, 'MiBlog/blog.html', {'form': form})
+    return render(request, 'blog', {'form': form})
 
 
 

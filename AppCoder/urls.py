@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 from django.contrib.auth.views import LogoutView
 from Mensajeria.views import enviar_mensaje
+from MiBlog.views import inicio1
 urlpatterns = [
    
    
@@ -24,6 +25,7 @@ urlpatterns = [
     path('busquedaPerfume', busquedaPerfume, name = 'busquedaPerfume'),
     path('editarcuidadocorporal/<id>', editarcuidadocorporal, name = 'editarcuidadocorporal'),
     path('editaravatar', editaravatar, name = 'editaravatar'),
+    path('blog', inicio1, name= 'blog' ),
     
     
     

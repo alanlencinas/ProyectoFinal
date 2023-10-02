@@ -9,6 +9,6 @@ class Mensaje(models.Model):
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.autor} - {self.contenido} - {self.fecha_publicacion}'
+        return self.contenido
     
     

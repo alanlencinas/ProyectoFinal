@@ -1,0 +1,106 @@
+{% extends 'MiBlog/padre2.html' %}
+
+{% load static %}
+
+
+
+{% block contenido_que_cambia %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sección de Fotos</title>
+    <link rel="stylesheet" href="tu_estilo.css">
+    <style>
+        /* Estilos CSS personalizados para esta sección */
+        .photo-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .photo {
+            flex-basis: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .photo-description {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mis Fotos</h1>
+    </header>
+
+    <section class="photo-section">
+        <!-- Foto 1 -->
+        <div class="photo">
+            <img src="foto1.jpg" alt="Foto 1">
+            <div class="photo-description">Descripción de la Foto 1</div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="photo">
+            <img src="foto2.jpg" alt="Foto 2">
+            <div class="photo-description">Descripción de la Foto 2</div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="photo">
+            <img src="foto3.jpg" alt="Foto 3">
+            <div class="photo-description">Descripción de la Foto 3</div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div class="photo">
+            <img src="foto4.jpg" alt="Foto 4">
+            <div class="photo-description">Descripción de la Foto 4</div>
+        </div>
+
+        <!-- Foto 5 -->
+        <div class="photo">
+            <img src="foto5.jpg" alt="Foto 5">
+            <div class="photo-description">Descripción de la Foto 5</div>
+        </div>
+
+        <!-- Foto 6 -->
+        <div class="photo">
+            <img src="foto6.jpg" alt="Foto 6">
+            <div class="photo-description">Descripción de la Foto 6</div>
+        </div>
+    </section>
+
+    <!-- Agrega cualquier otro contenido o secciones según tus necesidades -->
+
+    <footer>
+        <p>Derechos de autor © 2023 Tu Nombre</p>
+    </footer>
+</body>
+</html>
+
+
+
+{% endblock %}

@@ -31,6 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'aboutme' %}">About Me</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!"></a></li>
                         <li class="nav-item"><a class="nav-link" href="#!"></a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"></a></li>
@@ -51,8 +52,8 @@
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">En este sitio encontrarás esos productos que tanto buscas.</div>
                             <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'perfumeriadetalle' %}">Perfumeria</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'maquillajedetalle' %}">Maquillaje</a>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img class="img-fluid rounded" src="{% static 'MiBlog/assets/img/cremas.jpg' %}" alt="..." /></figure>
@@ -63,43 +64,58 @@
                             <p class="fs-5 mb-4"><b>NATURA ERVA DOCE</b><br></br> Natura Erva doce tiene productos hipoalergénicos, con pH fisiológico y fórmulas tan suaves como su fragancia inconfundible, una marca registrada de Natura. Para todo tipo de piel, la línea compuesta por jabones, desodorantes, hidratantes y productos para el rostro que garantizan más protección y limpieza, en fórmulas libres de alcohol y colorantes y texturas suaves que prolongan el placer del baño por más tiempo.</p>
                             <p class="fs-5 mb-4"><b>NATURA MAMÁ Y BEBÉ</b><br></br> El vínculo mamá y bebé determina, en gran parte, como el individuo se va a relacionar consigo mismo y con el mundo. Amor fundamental es el nombre que le damos a este vínculo. La línea Natura Mamá y Bebé estimula el cultivo de ese amor por medio de los sentidos. La vista, el olfato, el tacto, la audición. Hay un universo de sensaciones y sentimientos a ser explorado. Durante ese proceso, la presencia del padre es muy importante participando de los cuidados de la embarazada y del bebé, él ayuda a garantizar una gestación y una maternidad tranquilas, además de fortalecer el vínculo papá-bebé.</p>
                             <p class="fs-5 mb-4"><b>NATURA VIVA </b><br></br>Natura Viva es la línea de maquillaje, hecha para mujeres de todos los estilos, edades y tonos de piel. Con una amplia gama de productos, le brinda más color al maquillaje del día a día, de una manera sencilla y relajada. Refleja alegría, estimula la expresión y nos invita a vivir la vida intensamente, con alegría y felicidad.</p>
-                            <p class="fs-5 mb-4"><h2 class="fw-bolder mb-4 mt-5">NaturaAdictos</h2>
-                            <p class="fs-5 mb-4">--</p>
-                            <p class="fs-5 mb-4">--</p>
                         </section>
                     </article>
                     <!-- Comments section-->
                     <!-- Sección de comentarios -->
 
                     <!-- Mostrar comentarios existentes -->
+                    <h2>Comentarios</h2>
                     {% if mensajes %}
                     <div class="comments">
-                        <h2>Comentarios</h2>
-                        <ul class="comment-list">
-                        {% for comentario in mensajes %}
-                            <li class="comment">
-                            <div class="comment-info">
-                                <span class="comment-author">{{ comentario.autor.username }}</span>
-                                <span class="comment-date">{{ comentario.fecha_publicacion|date:"F d, Y H:i" }}</span>
-                            </div>
-                            <p class="comment-text">{{ comentario.contenido }}</p>
-                            </li>
-                        {% empty %}
-                            <li>No hay comentarios todavía.</li>
-                        {% endfor %}
-                        </ul>
+                        <table class="comment-table">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Fecha</th>
+                                    <th>Comentario</th>
+                                    {% if user.is_superuser %}
+                                        <th>Acciones</th>
+                                    {% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for comentario in mensajes %}
+                                <tr>
+                                    <td>{{ comentario.autor.username }}</td>
+                                    <td>{{ comentario.fecha_publicacion|date:"F d, Y H:i" }}</td>
+                                    <td>{{ comentario.contenido }}</td>
+                                    {% if user.is_superuser %}
+                                        <td><a href="{% url 'eliminar_comentario' comentario.id %}">Eliminar</a></td>
+                                    {% endif %}
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4">No hay comentarios todavía.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                     {% else %}
                     <p>No hay comentarios todavía.</p>
                     {% endif %}
 
+
+
+                    <!-- Formulario para dejar un nuevo comentario -->
                     <!-- Formulario para dejar un nuevo comentario -->
                     <div class="leave-comment">
                         <h3>Dejar un comentario</h3>
-                        <form method="post" action= "{% url 'dejar_mensaje' %}">
+                        <form method="post" action="{% url 'dejar_mensaje' %}" class="comment-form">
                             {% csrf_token %}
                             {{ mensaje_form.as_p }}
-                            <input type="submit" value= "Enviar comentario" </a>
+                            <input type="submit" value="Enviar comentario" />
                         </form>
                     </div>
                 </div>

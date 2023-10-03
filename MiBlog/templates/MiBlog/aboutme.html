@@ -1,0 +1,56 @@
+{% extends 'MiBlog/padre2.html' %}
+
+{% load static %}
+
+
+
+{% block contenido_que_cambia %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="{% static 'MiBlog/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Sobre Mí</h1>
+    </header>
+
+    <section class="content">
+        <div class="profile-image">
+            <img src="{% static 'MiBlog/assets/img/alanlencinas.jpeg' %}" alt="Mi Foto de Perfil">
+        </div>
+
+        <div class="bio">
+            <h2>Alan Gabriel Lencinas</h2>
+            <p>Hola a todos!</p>
+            <p>Mi nombre es Alan y tengo 31 años. Actualmente, me encuentro en un emocionante viaje en el mundo de la logística y la programación. Soy técnico superior en logística y estoy a punto de completar mi licenciatura, solo me queda la tesis pendiente para alcanzar ese logro.</p>
+            <p>En el ámbito personal, comparto mi vida con mi maravillosa esposa. Soy papá de Alma que tiene 11 años y de Alejandro que viene en camino.</p>
+            <p>En mi día a día, ocupo el rol de Analista Funcional y Data Analyst en una empresa logística ubicada en la zona de Villa Martelli. Este trabajo me ha permitido combinar mis conocimientos en logística con mi reciente pasión por la programación.</p>
+            <p>Lo más emocionante de todo es que esta aventura en el mundo de la programación comenzó con un proyecto muy especial: un sitio web para nuestro emprendimiento familiar. Mi esposa y yo somos revendedores de la marca Natura, y crear esta página web desde cero ha sido una experiencia increíble.</p>
+            <p>Disfruté cada paso del proceso y estoy ansioso por seguir aprendiendo y creciendo en este apasionante mundo de la tecnología.</p>
+            <p>Gracias por visitar mi página y por ser parte de esta increíble travesía.</p>
+            <p>¡Hablemos, aprendamos y crezcamos juntos!</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Contacto</h2>
+        <p>Puedes contactarme a través de alan.lencinas@gmail.com o seguirme en mis redes sociales:</p>
+        <ul class="social-links">
+            <li><a href="https://www.linkedin.com/in/alan-lencinas-442893195/">LinkedIn</a></li>
+            <!-- Agrega más redes sociales si lo deseas -->
+        </ul>
+    </section>
+
+    <footer>
+        <p>Derechos de autor © 2023 Alan Gabriel Lencinas</p>
+    </footer>
+</body>
+</html>
+
+{% endblock %}

@@ -5,118 +5,102 @@
 
 
 {% block contenido_que_cambia %}
-<br></br>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-
-    <title>Galería de Imágenes Cuadradas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sección de Fotos</title>
+    <link rel="stylesheet" href="tu_estilo.css">
     <style>
-        /* Estilos para las imágenes cuadradas */
-        .square-image {
-            max-width: 150px; /* Establece un tamaño máximo para las imágenes */
-            max-height: 200px; /* Establece una altura máxima para las imágenes */
-            object-fit: cover; /* Ajusta la imagen dentro del contenedor sin distorsionarla */
+        /* Estilos CSS personalizados para esta sección */
+        .photo-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
         }
-        
-        /* Estilos para los campos de comentarios */
-        textarea {
+
+        .photo {
+            flex-basis: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
             width: 100%;
-            height: 100px; /* Ajusta la altura según tus necesidades */
-            box-sizing: border-box;
+            height: auto;
         }
 
-        /* Estilos para las celdas de la tabla */
-        td {
-            text-align: center;
+        .photo-description {
             padding: 10px;
-            vertical-align: top; /* Hace que el contenido se alinee en la parte superior de las celdas */
-        }
-
-        /* Estilos para el contenedor de texto a la derecha */
-        .text-container {
-            padding-left: 20px; /* Espaciado a la izquierda del texto */
-        }
-
-        table {
-            background-color: #f2f2f2; /* Cambia el color de fondo a gris claro */
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
         }
     </style>
 </head>
-<a href="{% url 'blog' %}">Volver al Blog</a>
-<br></br>
-<h1>Productos de Perfumeria mas vendidos...</h1>
-<br>
 <body>
-    <table>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume1.jpg' %}" alt="Imagen 1" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p><b>Kaiak "Oceano", perfume Masculino, senti el aroma del Océano en tu piel..</b></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume2.jpg' %}" alt="Imagen 2" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p>Descripción de la Imagen 2</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume3.jpg' %}" alt="Imagen 3" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p>Descripción de la Imagen 3</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume4.jpg' %}" alt="Imagen 4" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p>Descripción de la Imagen 4</p>
-            </td>        
-        </tr>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume5.jpg' %}" alt="Imagen 5" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p>Descripción de la Imagen 5</p>
-            </td>        
-        </tr>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume6.jpg' %}" alt="Imagen 6" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p>Descripción de la Imagen 6</p>
-            </td>        
-        </tr>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume7.jpg' %}" alt="Imagen 7" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p>Descripción de la Imagen 7</p>
-            </td>        
-        </tr>
-        <tr>
-            <td>
-                <img class="square-image" src="{% static 'MiBlog/assets/img/Perfumes/perfume8.jpg' %}" alt="Imagen 8" />
-            </td>
-            <td class="text-container" style="vertical-align: middle;">
-                <p>Descripción de la Imagen 8</p>
-            </td>        
-        </tr>
-        <tr>
-    </table>
+    <header>
+        <h1>Mis Fotos</h1>
+    </header>
+
+    <section class="photo-section">
+        <!-- Foto 1 -->
+        <div class="photo">
+            <img src="{% static 'MiBlog/assets/img/Perfumes/perfume1.jpg' %}" alt="Foto 1">
+            <div class="photo-description">Kaiak Oceano: Sumérgete en la frescura del océano con Kaiak Oceano, una fragancia que te transporta a la brisa marina y las olas rompiendo en la costa. Notas de cítricos, salinidad y maderas suaves se combinan para crear una experiencia refrescante y revitalizante.</div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="photo">
+            <img src="{% static 'MiBlog/assets/img/Perfumes/perfume2.jpg' %}" alt="Foto 2">
+            <div class="photo-description">Kaiak Vital: Encuentra tu vitalidad interior con Kaiak Vital, una fragancia que inspira energía y vitalidad. Esta mezcla fresca de notas herbales, cítricos y maderas te invita a enfrentar cada día con pasión y determinación.</div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="photo">
+            <img src="{% static 'MiBlog/assets/img/Perfumes/perfume3.jpg' %}" alt="Foto 3">
+            <div class="photo-description">Ekos Castanha: Sumérgete en la riqueza de la selva amazónica con Ekos Castanha. Esta fragancia evoca la cálida y acogedora sensación de un abrazo amazónico. Las notas de nuez de castaña y vainilla crean un aroma suave y reconfortante.</div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div class="photo">
+            <img src="{% static 'MiBlog/assets/img/Perfumes/perfume4.jpg' %}" alt="Foto 4">
+            <div class="photo-description">Humor a Dois: El amor está en el aire con Humor a Dois. Esta fragancia despierta la chispa del romance con su mezcla de notas florales, frutales y un toque de especias. Es perfecta para compartir momentos especiales en pareja.</div>
+        </div>
+
+        <!-- Foto 5 -->
+        <div class="photo">
+            <img src="{% static 'MiBlog/assets/img/Perfumes/perfume5.jpg' %}" alt="Foto 5">
+            <div class="photo-description">Beijo de Humor: Deja una impresión duradera con Beijo de Humor, una fragancia que captura la sensualidad y la pasión de un beso apasionado. Notas de frutas rojas, flores exóticas y un toque de vainilla crean un aroma irresistible.</div>
+        </div>
+
+        <!-- Foto 6 -->
+        <div class="photo">
+            <img src="{% static 'MiBlog/assets/img/Perfumes/perfume6.jpg' %}" alt="Foto 6">
+            <div class="photo-description">Ekos Açaí: Explora la exuberancia de la selva tropical con Ekos Açaí. Esta fragancia celebra la energía y la vitalidad del açaí, una fruta amazónica llena de antioxidantes. Las notas de açaí y frutas del bosque te envuelven en un aroma fresco y revitalizante.</div>
+        </div>
+    </section>
+
+    <!-- Agrega cualquier otro contenido o secciones según tus necesidades -->
+
+    <footer>
+        <p>Derechos de autor © 2023 Alan Gabriel Lencinas</p>
+    </footer>
 </body>
 </html>
+
 
 
 

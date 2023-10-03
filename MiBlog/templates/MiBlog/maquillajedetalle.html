@@ -5,6 +5,30 @@
 
 
 {% block contenido_que_cambia %}
+
+<a href="MiBlog/blog">
+    <button class="boton-personalizado">Volver a Inicio</button>
+</a>
+  
+<style>
+    /* Estilos para el botón personalizado */
+    .boton-personalizado {
+      background-color: #3498db; /* Cambia el color de fondo a tu preferencia */
+      color: #ffffff; /* Cambia el color del texto a tu preferencia */
+      border: none;
+      padding: 10px 20px; /* Ajusta el espaciado interior del botón según lo desees */
+      border-radius: 5px; /* Ajusta el radio de borde según lo desees para hacerlo más redondeado */
+      text-decoration: none; /* Elimina el subrayado del enlace */
+      cursor: pointer;
+      font-size: 16px; /* Ajusta el tamaño del texto según lo desees */
+    }
+  
+    /* Cambia el color del botón cuando se pasa el mouse sobre él */
+    .boton-personalizado:hover {
+      background-color: #2980b9; /* Cambia el color de fondo al pasar el mouse */
+    }
+</style>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -52,51 +76,51 @@
 </head>
 <body>
     <header>
-        <h1>Mis Fotos</h1>
+        <h1>Productos mas vendidos de Maquillaje</h1>
     </header>
 
     <section class="photo-section">
         <!-- Foto 1 -->
         <div class="photo">
-            <img src="foto1.jpg" alt="Foto 1">
-            <div class="photo-description">Descripción de la Foto 1</div>
+            <img src="{% static 'MiBlog/assets/img/Maquillaje/maquillaje1.jpg' %}" alt="Foto 1">
+            <div class="photo-description">Labial Mate #1: Este labial mate en un hermoso tono de rojo profundo es la elección perfecta para quienes desean un look audaz y duradero. Su fórmula de larga duración se desliza suavemente sobre tus labios, proporcionando un color intenso y un acabado mate elegante. Destaca tus labios con este labial que captura la atención.</div>
         </div>
 
         <!-- Foto 2 -->
         <div class="photo">
-            <img src="foto2.jpg" alt="Foto 2">
-            <div class="photo-description">Descripción de la Foto 2</div>
+            <img src="{% static 'MiBlog/assets/img/Maquillaje/maquillaje2.jpg' %}" alt="Foto 2">
+            <div class="photo-description">Labial Mate #2: El labial mate en un encantador tono nude es ideal para un look sofisticado y versátil. Su fórmula mate de alta calidad se mantiene intacta durante horas y ofrece un color rico y uniforme. Este labial complementará cualquier estilo y te mantendrá con un aspecto impecable en todo momento.</div>
         </div>
 
         <!-- Foto 3 -->
         <div class="photo">
-            <img src="foto3.jpg" alt="Foto 3">
-            <div class="photo-description">Descripción de la Foto 3</div>
+            <img src="{% static 'MiBlog/assets/img/Maquillaje/maquillaje3.jpg' %}" alt="Foto 3">
+            <div class="photo-description">Base Cushion: La base cushion es la clave para una piel radiante y natural. Esta base ligera y de cobertura ajustable se aplica fácilmente con su esponja incorporada, lo que la convierte en una opción perfecta para un maquillaje rápido y sin esfuerzo. Deja tu piel con un aspecto fresco y luminoso durante todo el día.</div>
         </div>
 
         <!-- Foto 4 -->
         <div class="photo">
-            <img src="foto4.jpg" alt="Foto 4">
-            <div class="photo-description">Descripción de la Foto 4</div>
+            <img src="{% static 'MiBlog/assets/img/Maquillaje/maquillaje4.jpg' %}" alt="Foto 4">
+            <div class="photo-description">Mascara Fashion para Pestañas: Transforma tus pestañas con nuestra máscara fashion. Su cepillo de cerdas separadas y su fórmula voluminizadora te proporcionarán unas pestañas largas y con un volumen impresionante. Define tus ojos y atrévete a destacar con unas pestañas de impacto.</div>
         </div>
 
         <!-- Foto 5 -->
         <div class="photo">
-            <img src="foto5.jpg" alt="Foto 5">
-            <div class="photo-description">Descripción de la Foto 5</div>
+            <img src="{% static 'MiBlog/assets/img/Maquillaje/maquillaje5.jpg' %}" alt="Foto 5">
+            <div class="photo-description">Kit 3 Labiales: Nuestro kit de 3 labiales es la opción perfecta para variar tu look según tu estado de ánimo. Incluye tres tonos diferentes: uno audaz, uno suave y uno versátil. Cada labial está formulado para una aplicación suave y una duración duradera, lo que te permite experimentar con diferentes estilos.</div>
         </div>
 
         <!-- Foto 6 -->
         <div class="photo">
-            <img src="foto6.jpg" alt="Foto 6">
-            <div class="photo-description">Descripción de la Foto 6</div>
+            <img src="{% static 'MiBlog/assets/img/Maquillaje/maquillaje6.jpg' %}" alt="Foto 6">
+            <div class="photo-description">Kit 3 Mascaras para Pestañas: El kit de 3 máscaras para pestañas es imprescindible para realzar tu mirada. Incluye tres máscaras diferentes, cada una diseñada para un efecto específico: volumen, longitud y definición. Con este kit, puedes personalizar tus pestañas según la ocasión y lograr un look espectacular.</div>
         </div>
     </section>
 
     <!-- Agrega cualquier otro contenido o secciones según tus necesidades -->
 
     <footer>
-        <p>Derechos de autor © 2023 Tu Nombre</p>
+        <p>Derechos de autor © 2023 Alan Gabriel Lencinas</p>
     </footer>
 </body>
 </html>

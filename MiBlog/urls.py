@@ -9,6 +9,8 @@ urlpatterns = [
   path('eliminar_comentario/<int:comentario_id>/', views.eliminar_comentario, name='eliminar_comentario'),
   path('aboutme/', aboutme, name='aboutme'),
   path('maquillaje', maquillajedetalle, name = 'maquillajedetalle' ),
+  path('MiBlog/blog', inicio1, name='blog'),
+  path('cabellodetalle', cabellodetalle, name='cabellodetalle'),
 ]
 
 

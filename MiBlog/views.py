@@ -17,6 +17,9 @@ def perfumeriadetalle(request):
 def maquillajedetalle(request):
     return render(request, "MiBlog/maquillajedetalle.html", {"avatar": obtenerAvatar(request)})
 
+def cabellodetalle(request):
+    return render(request, "MiBlog/cabellodetalle.html", {"avatar": obtenerAvatar(request)})
+
 
 @login_required
 def dejar_mensaje(request):

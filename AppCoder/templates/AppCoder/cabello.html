@@ -40,7 +40,7 @@
               <td>{{ cabello.Codigo }}</td>
               <td>{{ cabello.Nombre }}</td>
               <td>{{ cabello.Sexo }}</td>
-              <td>{{ cabello.Precio }}</td>
+              <td>${{ cabello.Precio }}</td>
               {% if request.user.is_superuser %}
               <td>
                   <a class="btn btn-danger" href="{% url 'eliminarcabello' cabello.id %}" style="color: black;">

@@ -39,7 +39,7 @@
               <td>{{ cuidadocorporal.Codigo }}</td>
               <td>{{ cuidadocorporal.Nombre }}</td>
               <td>{{ cuidadocorporal.Sexo }}</td>
-              <td>{{ cuidadocorporal.Precio }}</td>
+              <td>${{ cuidadocorporal.Precio }}</td>
               {% if request.user.is_superuser %}
               <td>
                   <a class="btn btn-danger" href="{% url 'eliminarcuidadocorporal' cuidadocorporal.id %}" style="color: black;">

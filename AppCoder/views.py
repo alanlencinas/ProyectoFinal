@@ -69,7 +69,7 @@ def cabello(request):
                 precio=info["Precio"]
                 cabello = Cabello(Codigo=codigo, Nombre=nombre, Sexo=sexo, Precio=precio)
                 cabello.save()
-                mensaje = "Produco de Cabello Creado"
+                mensaje = "Producto de Cabello Creado"
         else:
             mensaje = "Datos Inválidos"
     else:

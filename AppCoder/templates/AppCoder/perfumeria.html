@@ -52,7 +52,7 @@
                 <td>{{ perfume.Codigo }}</td>
                 <td>{{ perfume.Nombre }}</td>
                 <td>{{ perfume.Sexo }}</td>
-                <td>{{ perfume.Precio }}</td>
+                <td>${{ perfume.Precio }}</td>
                 {% if request.user.is_superuser %}
                 <td>
                     <a class="btn btn-danger" href="{% url 'eliminarperfume' perfume.id %}" style="color: black;">

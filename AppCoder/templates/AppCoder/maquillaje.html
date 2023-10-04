@@ -37,7 +37,7 @@
           <tr>
               <td>{{ maquillaje.Codigo }}</td>
               <td>{{ maquillaje.Nombre }}</td>
-              <td>{{ maquillaje.Precio }}</td>
+              <td>${{ maquillaje.Precio }}</td>
               {% if request.user.is_superuser %}
               <td>
                   <a class="btn btn-danger" href="{% url 'eliminarmaquillaje' maquillaje.id %}">
